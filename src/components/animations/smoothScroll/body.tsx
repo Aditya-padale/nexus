@@ -33,7 +33,7 @@ export default function Body({
       <div className="flex h-[300px] w-full justify-between gap-[5%] sm:h-[700px]">
         <div ref={imageContainer} className="relative h-full w-[40%]">
           <Image
-            src={`/images/${body[selectedProject].src}`}
+            src={body[selectedProject].src}
             fill
             alt="project image"
             priority
