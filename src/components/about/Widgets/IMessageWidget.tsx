@@ -239,7 +239,7 @@ export default function IMessageWidget() {
                   <div className="flex max-w-[82%] items-start gap-3">
                     <div className="mt-4 h-12 w-12 overflow-hidden rounded-full">
                       <Image
-                        src="/images/profile2.jpg"
+                        src="/images/logo.jpg"
                         alt="Betts avatar"
                         width={40}
                         height={40}

@@ -11,37 +11,37 @@ import Description from '@/components/home/Description/description';
 const slider1 = [
   {
     color: '#6C63FF',
-    src: '../projects/Discovery.png'
+    src: '/projects/Discovery.png'
   },
   {
     color: '#4CAF50',
-    src: '../projects/codathon.png'
+    src: '/projects/codathon.png'
   },
   {
     color: '#FF9800',
-    src: '../projects/hackathon.png'
+    src: '/projects/hackathon.png'
   },
   {
     color: '#21242b',
-    src: '../projects/Neuroverse.png'
+    src: '/projects/Neuroverse.png'
   }
 ];
 const slider2 = [
   {
     color: '#d4e3ec',
-    src: '../projects/Discovery.png'
+    src: '/projects/Discovery.png'
   },
   {
     color: '#9289BD',
-    src: '../projects/Neuroverse.png'
+    src: '/projects/Neuroverse.png'
   },
   {
     color: '#6C63FF',
-    src: '../projects/codathon.png'
+    src: '/projects/codathon.png'
   },
   {
     color: '#303030',
-    src: '../projects/hackathon.png'
+    src: '/projects/hackathon.png'
   }
 ];
 

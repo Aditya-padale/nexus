@@ -10,7 +10,7 @@ import { ModalContext } from './modalContext';
 const projects = [
   {
     title: 'Discovery',
-    src: '../projects/Discovery.png',
+    src: '/projects/Discovery.png',
     description:
       'An innovative exploration platform showcasing cutting-edge features and interactive experiences.',
     href: '/projects',
@@ -19,7 +19,7 @@ const projects = [
   },
   {
     title: 'Neuroverse',
-    src: '../projects/Neuroverse.png',
+    src: '/projects/Neuroverse.png',
     description:
       'A neural network visualization tool exploring the frontiers of artificial intelligence and machine learning.',
     href: '/projects',
@@ -28,7 +28,7 @@ const projects = [
   },
   {
     title: 'Codathon',
-    src: '../projects/codathon.png',
+    src: '/projects/codathon.png',
     description:
       'An intensive coding competition platform connecting developers worldwide to solve challenging problems.',
     href: '/projects',
@@ -37,7 +37,7 @@ const projects = [
   },
   {
     title: 'Hackathon',
-    src: '../projects/hackathon.png',
+    src: '/projects/hackathon.png',
     description:
       'A 24-hour innovation challenge bringing together teams to build creative solutions and prototype ideas.',
     href: '/projects',
