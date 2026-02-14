@@ -2,17 +2,21 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { useSpotify } from '@/hooks/useSpotify';
 
 /**
  * Music player widget showing currently playing track
  * Inspired by Marco.fyi about page
  */
 export default function MusicWidget() {
-  const { topTracks, isLoading } = useSpotify();
-  const currentTrack = topTracks?.[0]; // Use first top track as "currently playing"
+  // Static placeholder data
+  const currentTrack = {
+    name: "Not Currently Playing",
+    artist: "Connect Spotify to see what's playing",
+    album: "Music",
+    albumArt: "/placeholder-album.png"
+  };
 
-  if (isLoading || !currentTrack) {
+  if (!currentTrack) {
     return (
       <div className="group relative overflow-hidden rounded-2xl border border-foreground/10 bg-white p-5 shadow-sm transition-all duration-300 hover:shadow-md">
         {/* Music note icon badge */}

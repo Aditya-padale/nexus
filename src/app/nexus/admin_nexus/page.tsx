@@ -75,7 +75,7 @@ export default function AdminNexusPage() {
       const response = await fetch('/api/admin-likes');
       const data = await response.json();
       if (data.showcased) {
-        const likedIds = new Set(data.showcased.map((item: any) => item.id));
+        const likedIds = new Set<string>(data.showcased.map((item: any) => item.id));
         setLikedContentIds(likedIds);
       }
     } catch (error) {
