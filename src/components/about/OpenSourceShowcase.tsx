@@ -20,28 +20,36 @@ export interface Repo {
 
 export const repos: Repo[] = [
   {
-    name: 'nexus-website',
+    name: 'DISCOVERY 2k25',
     description:
-      'The official Nexus club website. Built with Next.js 14, GSAP animations, and Tailwind CSS.',
-    url: 'https://github.com/NEXUS-ADCET/nexus-website',
+      'A modern, responsive website for Discovery 2K25, the National Level Technical Festival at ADCET, Ashta.',
+    url: 'https://github.com/NEXUS-ADCET/Discovery',
     language: 'TypeScript',
-    tags: ['Next.js', 'GSAP', 'Club'],
+    tags: ['Next.js','Razor Pay'],
     featured: true
   },
   {
-    name: 'web-dev-starter-kit',
+    name: 'ADCET HACKATHON 3.0',
     description:
-      'A beginner-friendly starter kit for new members to learn HTML, CSS, JavaScript, and React.',
-    url: 'https://github.com/NEXUS-ADCET/web-dev-starter-kit',
+      'Official website for ADCET Hackathon Season 3 hosted by Annasaheb Dange College of Engineering & Technology, Ashta, Maharashtra.',
+    url: 'https://github.com/NEXUS-ADCET/Hackthon-ADCET',
     language: 'JavaScript',
-    tags: ['Education', 'Beginner', 'React']
+    tags: ['CSS','React']
   },
   {
-    name: 'hackathon-projects',
-    description: 'Collection of projects built during Nexus hackathons.',
-    url: 'https://github.com/NEXUS-ADCET/hackathon-projects',
+    name: 'Codathon 2k25',
+    description:
+      'A modern, responsive web application for Codethon 2025 - The Ultimate Coding Competition',
+    url: 'https://github.com/NEXUS-ADCET/Codethon-2k25',
     language: 'TypeScript',
-    tags: ['Hackathon', 'Projects']
+    tags: ['Next.js','Toggle']
+  },
+  {
+    name: 'Neuroverse 2k25',
+    description: 'Official Website for Neuroverse hosted by Artificail intelligence and data science.',
+    url: 'https://github.com/NEXUS-ADCET/neuroverse',
+    language: 'TypeScript',
+    tags: ['React', 'Razorpay']
   }
 ];
 
@@ -101,14 +109,21 @@ export default function OpenSourceShowcase() {
   return (
     <div
       ref={containerRef}
-      className="relative overflow-hidden rounded-2xl border border-foreground/10 bg-white p-4 shadow-sm transition-all duration-300 hover:shadow-md"
+      className="relative overflow-hidden rounded-2xl border border-foreground/10 bg-white p-5 shadow-sm transition-all duration-500 hover:shadow-lg"
     >
-      <div className="mb-4 flex items-center justify-between">
-        <div>
-          <h2 className="text-sm font-semibold text-foreground">
-            Open Source
-          </h2>
-          <p className="text-xs text-foreground/50">Templates & repos</p>
+      <div className="mb-5 flex items-center justify-between">
+        <div className="flex items-center gap-2.5">
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-foreground/[0.04]">
+            <svg className="h-4 w-4 text-foreground/60" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+            </svg>
+          </div>
+          <div>
+            <h2 className="text-sm font-bold text-foreground">
+              Open Source
+            </h2>
+            <p className="text-[11px] text-foreground/40">Templates & repos</p>
+          </div>
         </div>
         <Link
           href="https://github.com/NEXUS-ADCET"
@@ -141,10 +156,10 @@ export default function OpenSourceShowcase() {
             href={repo.url}
             target="_blank"
             rel="noopener noreferrer"
-            className={`group relative flex min-w-[200px] max-w-[220px] shrink-0 snap-start flex-col rounded-xl border p-4 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md ${
+            className={`group relative flex min-w-[210px] max-w-[230px] shrink-0 snap-start flex-col rounded-xl border p-5 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-lg ${
               repo.featured
-                ? 'border-primary/30 bg-primary/[0.03] ring-1 ring-primary/10'
-                : 'border-foreground/10 bg-foreground/[0.02]'
+                ? 'border-primary/30 bg-gradient-to-br from-primary/[0.05] to-primary/[0.02] ring-1 ring-primary/10'
+                : 'border-foreground/[0.06] bg-foreground/[0.01] hover:border-foreground/15'
             }`}
           >
             {repo.featured && (

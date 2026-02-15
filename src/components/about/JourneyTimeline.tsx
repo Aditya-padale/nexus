@@ -26,30 +26,30 @@ const journeyData: TimelineItem[] = [
     highlight: true
   },
   {
-    year: '2025',
-    title: 'First Hackathon Organized',
+    year: '2026',
+    title: 'A Growing Family – Expansion and New Beginnings (2026)',
     company: 'Nexus Club',
     description:
-      'Organized our first intra-college hackathon with 100+ participants. Themes included AI-powered web apps, sustainable tech, and social impact projects.'
+      'The Year Our Community Grew Stronger, As More Students Joined and Became Part of Our Shared Dream.'
   },
   {
     year: '2025',
-    title: 'Workshop Series Launched',
+    title: 'The First Big Project – Discovery (2025)',
     company: 'Nexus Club',
     description:
-      'Launched a comprehensive workshop series covering HTML/CSS, JavaScript, React, Next.js, Node.js, databases, and deployment. Open to all departments.'
+      'The Big Step Forward with Discovery, A Project That Proved We Could Turn Our Ideas into Reality Through Teamwork and Determination.'
   },
   {
-    year: '2024',
-    title: 'Open Source Contributions',
+    year: '2025',
+    title: 'The First Milestone – Neuroverse Website (2025)',
     company: 'Nexus Club',
     description:
-      'Club members started contributing to open-source projects on GitHub. Participated in Hacktoberfest with 50+ pull requests merged.'
+      'The First Proud Moment When Neuroverse Was Launched, Giving Our Club Its Own Identity and a Place in the Digital World.'
   },
   {
-    year: '2024',
+    year: '2025',
     title: 'Club Founded',
-    company: 'ADCET, Sangli',
+    company: 'ADCET, Ashta',
     description:
       'Nexus was founded by a group of passionate students in the AI & Data Science department to bridge the gap between academics and real-world web development.'
   }
@@ -92,7 +92,10 @@ export default function JourneyTimeline() {
 
   return (
     <div ref={containerRef} className="relative">
-      <div className="space-y-1">
+      {/* Vertical timeline line */}
+      <div className="absolute left-[39px] top-6 bottom-6 hidden w-px bg-gradient-to-b from-primary/20 via-foreground/10 to-transparent sm:block" />
+
+      <div className="space-y-0">
         {journeyData.map((item, i) => {
           const isLastItem = i === journeyData.length - 1;
 
@@ -104,29 +107,34 @@ export default function JourneyTimeline() {
               }}
               className="group relative"
             >
-              {/* Timeline item - clean horizontal layout */}
               <div
-                className={`grid py-4 sm:grid-cols-[60px_1fr] sm:gap-4 sm:py-6 ${
-                  isLastItem ? '' : 'border-b border-foreground/10'
+                className={`grid py-5 sm:grid-cols-[80px_1fr] sm:gap-5 sm:py-7 ${
+                  isLastItem ? '' : 'border-b border-foreground/[0.06]'
                 }`}
               >
-                {/* Year */}
-                <div className="items-start px-2">
+                {/* Year with dot indicator */}
+                <div className="relative flex items-start gap-3 px-2">
+                  {/* Timeline dot */}
+                  <div className={`relative z-10 mt-1.5 hidden h-3 w-3 shrink-0 rounded-full border-2 sm:block ${
+                    item.highlight
+                      ? 'border-primary bg-primary/20 shadow-[0_0_8px_rgba(31,143,255,0.3)]'
+                      : 'border-foreground/20 bg-white group-hover:border-primary/40'
+                  } transition-all duration-300`} />
                   <span
-                    className={`inline-block rounded-full px-3 py-1 text-sm font-medium ${
+                    className={`inline-block rounded-full px-3 py-1 text-sm font-semibold tracking-wide ${
                       item.highlight
                         ? 'bg-primary/10 text-primary'
-                        : 'bg-foreground/5 text-foreground/60'
-                    }`}
+                        : 'bg-foreground/[0.04] text-foreground/50 group-hover:bg-foreground/[0.07] group-hover:text-foreground/70'
+                    } transition-all duration-300`}
                   >
                     {item.year}
                   </span>
                 </div>
 
                 {/* Content */}
-                <div className="space-y-2">
+                <div className="space-y-2 group-hover:translate-x-1 transition-transform duration-300">
                   <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                    <h3 className="text-lg font-semibold text-foreground sm:text-xl">
+                    <h3 className="text-lg font-bold text-foreground sm:text-xl">
                       {item.title}
                     </h3>
                     {item.companyUrl ? (
@@ -139,12 +147,12 @@ export default function JourneyTimeline() {
                         @{item.company} ↗
                       </Link>
                     ) : (
-                      <span className="text-sm font-medium text-foreground/50">
+                      <span className="text-sm font-medium text-foreground/40">
                         @{item.company}
                       </span>
                     )}
                   </div>
-                  <p className="max-w-2xl text-foreground/60">
+                  <p className="max-w-2xl text-foreground/55 leading-relaxed">
                     {item.description}
                   </p>
                 </div>

@@ -36,6 +36,8 @@ export default function AnimatedSection({
 }: AnimatedSectionProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
 
+  const wrapperClassName = className;
+
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
@@ -101,7 +103,7 @@ export default function AnimatedSection({
   }, [animation, delay, duration, stagger]);
 
   return (
-    <div ref={sectionRef} className={className}>
+    <div ref={sectionRef} className={wrapperClassName}>
       {children}
     </div>
   );

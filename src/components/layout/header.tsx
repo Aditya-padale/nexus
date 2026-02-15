@@ -94,7 +94,7 @@ export default function Header() {
               { label: 'About', href: '/about' },
               { label: 'Projects', href: '/projects' },
               { label: 'Events', href: '/web' },
-              { label: 'Blog', href: '/blog' },
+              { label: 'Schedule', href: '/calendar' },
               { label: 'Showcase', href: '/nexus/showcase' },
             ].map((item) => (
               <Magnetic key={item.label}>

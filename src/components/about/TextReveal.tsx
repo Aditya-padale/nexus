@@ -62,20 +62,24 @@ export default function TextReveal({
           }
         );
       } else {
+        // Cap total stagger time so long texts don't take forever
+        const maxTotalStagger = 0.6; // seconds for all words combined
+        const effectiveStagger = Math.min(stagger, maxTotalStagger / Math.max(words.length, 1));
+
         gsap.fromTo(
           words,
           {
             opacity: 0,
-            y: 32,
-            rotateX: -20
+            y: 16,
+            rotateX: -10
           },
           {
             opacity: 1,
             y: 0,
             rotateX: 0,
-            duration: 1,
-            ease: 'power4.out',
-            stagger,
+            duration: 0.5,
+            ease: 'power3.out',
+            stagger: effectiveStagger,
             scrollTrigger: {
               trigger: container,
               start: 'top 88%',
@@ -102,8 +106,8 @@ export default function TextReveal({
             }}
             className={clsx(
               'mr-[0.25em] inline-block',
-              highlightWords.includes(word.toLowerCase().replace(/[.,!?]$/, ''))
-                ? 'font-bold text-primary'
+              highlightWords.map(w => w.toLowerCase()).includes(word.toLowerCase().replace(/[.,!?]$/, ''))
+                ? 'font-semibold text-primary'
                 : ''
             )}
             style={{ transformStyle: 'preserve-3d' }}

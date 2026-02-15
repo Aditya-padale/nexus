@@ -22,8 +22,8 @@ const links = [
     href: '/web'
   },
   {
-    title: 'blog',
-    href: '/blog'
+    title: 'schedule',
+    href: '/calendar'
   },
   {
     title: 'showcase',
