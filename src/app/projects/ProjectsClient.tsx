@@ -51,7 +51,7 @@ export default function ProjectsClient() {
             <div className="p-2.5 rounded-xl bg-black/[0.03] select-none">
               <Suitcase className="w-5 h-5 text-black/60" />
             </div>
-            <span className="text-sm font-medium text-black/40 uppercase tracking-wider select-none">Portfolio</span>
+            <span className="text-sm font-medium text-black/40 uppercase tracking-wider select-none">Nexus Club</span>
           </div>
           
           <h1 className="text-4xl md:text-5xl font-bold text-black tracking-tight mb-4 select-none">
@@ -59,7 +59,7 @@ export default function ProjectsClient() {
           </h1>
           
           <p className="text-base text-black/50 max-w-2xl font-product leading-relaxed select-text cursor-text">
-            A curated collection of projects I&apos;ve shipped. From event platforms to AI systems, coding competitions, and more.
+            A curated collection of projects we&apos;ve shipped. From event platforms to AI systems, coding competitions, and more.
           </p>
         </div>
 
