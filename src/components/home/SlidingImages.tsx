@@ -39,10 +39,12 @@ export default function SlidingImages({ slider1, slider2 }: Props) {
           >
             <div className="relative h-full w-full">
               <Image
-                alt="image"
+                alt={`Nexus club project - ${project.src.split('/').pop()?.replace(/\.(png|jpg|jpeg|webp)$/i, '') ?? 'project showcase'}`}
                 src={project.src}
                 fill
-                objectFit="contain"
+                style={{ objectFit: 'contain' }}
+                loading="lazy"
+                sizes="(max-width: 640px) 50vw, 25vw"
               />
             </div>
           </div>
@@ -61,9 +63,11 @@ export default function SlidingImages({ slider1, slider2 }: Props) {
             <div key={index} className="relative h-full w-full shadow-lg ">
               <Image
                 fill
-                alt="image"
+                alt={`Nexus club event - ${project.src.split('/').pop()?.replace(/\.(png|jpg|jpeg|webp)$/i, '') ?? 'event showcase'}`}
                 src={project.src}
-                objectFit="contain"
+                style={{ objectFit: 'contain' }}
+                loading="lazy"
+                sizes="(max-width: 640px) 75vw, 25vw"
               />
             </div>
           </div>

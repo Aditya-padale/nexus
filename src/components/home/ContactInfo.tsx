@@ -30,9 +30,11 @@ export default function ContactInfo() {
   }, [timeNow]);
 
   return (
-    <motion.div
+    <motion.footer
       style={{ y }}
       ref={container}
+      role="contentinfo"
+      aria-label="Site footer — Contact Nexus web development club"
       className="relative flex min-h-screen flex-col items-center justify-between bg-foreground p-6 pt-32 text-white sm:justify-center"
     >
       <div className="w-full bg-foreground pt-[150px] sm:max-w-[1800px]">
@@ -112,6 +114,6 @@ export default function ContactInfo() {
           </div>
         </div>
       </div>
-    </motion.div>
+    </motion.footer>
   );
 }

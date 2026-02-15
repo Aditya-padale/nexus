@@ -9,7 +9,7 @@ const transition = { duration: 0.8, ease: [0.22, 1, 0.36, 1] };
 
 export default function Hero() {
   return (
-    <div className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-[#0a0a0f] text-white selection:bg-violet-500/30">
+    <section aria-label="Hero — Nexus Web Development Club" className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-[#0a0a0f] text-white selection:bg-violet-500/30">
       {/* Ambient glow */}
       <div className="pointer-events-none absolute inset-0 z-0">
         <div
@@ -73,6 +73,13 @@ export default function Hero() {
         </motion.div>
       </div>
 
+      {/* Visually-hidden SEO content */}
+      <p className="sr-only">
+        Nexus is the Web Development Club at Annasaheb Dange College of Engineering and Technology (ADCET),
+        Ashta, Sangli, Maharashtra. We are part of the AI and Data Science department.
+        Join us to learn React, Next.js, TypeScript, Node.js, and modern web development.
+      </p>
+
       {/* Bottom divider */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-zinc-800/50 to-transparent" />
 
@@ -82,6 +89,6 @@ export default function Hero() {
           50% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
         }
       `}</style>
-    </div>
+    </section>
   );
 }

@@ -42,11 +42,11 @@ export default function ProjectsClient() {
   }, []);
 
   return (
-    <main className="px-4 pt-24 pb-8" ref={containerRef}>
+    <main className="px-4 pt-24 pb-8" ref={containerRef} aria-label="Projects by Nexus Web Dev Club">
       <div className="max-w-7xl mx-auto">
         
         {/* Page Header */}
-        <div className="page-header mb-12">
+        <header className="page-header mb-12">
           <div className="flex items-center gap-3 mb-3">
             <div className="p-2.5 rounded-xl bg-black/[0.03] select-none">
               <Suitcase className="w-5 h-5 text-black/60" />
@@ -61,7 +61,7 @@ export default function ProjectsClient() {
           <p className="text-base text-black/50 max-w-2xl font-product leading-relaxed select-text cursor-text">
             A curated collection of projects we&apos;ve shipped. From event platforms to AI systems, coding competitions, and more.
           </p>
-        </div>
+        </header>
 
         {/* Featured Projects */}
         {featuredProjects.length > 0 && (

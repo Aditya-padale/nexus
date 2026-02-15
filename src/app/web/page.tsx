@@ -1,79 +1,60 @@
-'use client';
+import { Metadata } from 'next';
+import WebClient from './WebClient';
+import { getBreadcrumbSchema } from '@/lib/jsonLd';
 
-import React from 'react';
-import Layout from '@/components/layout';
-import { ProjectCard } from '@/components/ui/ProjectCard';
-import { SectionHero } from '@/components/ui/SectionHero';
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.nexusclub.in';
 
-// Events data
-const workItems = [
-  {
-    id: 'hackathon-2025',
-    title: 'Nexus Hackathon 2025',
-    description:
-      'Our flagship intra-college hackathon with 100+ participants. Build AI-powered web apps in 24 hours.',
-    imagePath: '',
-    link: '/web',
-    tags: ['Hackathon', 'AI', 'Web Dev']
+export const metadata: Metadata = {
+  title: 'Events & Activities',
+  description:
+    'Explore Nexus club events — hackathons, workshops, bootcamps, tech talks, and open-source contribution days at ADCET.',
+  keywords: [
+    'Nexus events',
+    'Nexus ADCET events',
+    'ADCET Nexus activities',
+    'ADCET web development club events',
+    'hackathon ADCET',
+    'ADCET hackathon',
+    'Nexus hackathon',
+    'web development workshop ADCET',
+    'coding bootcamp Sangli',
+    'tech talks ADCET',
+    'open source day',
+    'Nexus activities',
+    'React workshop ADCET',
+    'Next.js bootcamp',
+    'college hackathon Maharashtra',
+    'student tech events India',
+    'Hacktoberfest ADCET',
+  ],
+  alternates: {
+    canonical: `${siteUrl}/web`,
   },
-  {
-    id: 'react-workshop',
-    title: 'React Workshop Series',
+  openGraph: {
+    title: 'Events & Activities — Nexus Web Dev Club',
     description:
-      'A 4-week hands-on workshop covering React fundamentals, hooks, state management, and deployment.',
-    imagePath: '',
-    link: '/web',
-    tags: ['Workshop', 'React']
+      'Workshops, hackathons, tech talks, and more — explore what Nexus has been up to.',
+    url: `${siteUrl}/web`,
+    type: 'website',
   },
-  {
-    id: 'nextjs-bootcamp',
-    title: 'Next.js Bootcamp',
-    description:
-      'Intensive weekend bootcamp on building full-stack applications with Next.js, TypeScript, and Prisma.',
-    imagePath: '',
-    link: '/web',
-    tags: ['Bootcamp', 'Next.js']
-  },
-  {
-    id: 'open-source-day',
-    title: 'Open Source Contribution Day',
-    description:
-      'A day-long event helping students make their first open-source contribution on GitHub.',
-    imagePath: '',
-    link: '/web',
-    tags: ['Open Source', 'GitHub']
-  },
-  {
-    id: 'tech-talks',
-    title: 'Tech Talk Tuesdays',
-    description:
-      'Weekly tech talks by club members and industry guests on trending web technologies and career guidance.',
-    imagePath: '',
-    link: '/web',
-    tags: ['Tech Talks', 'Community']
-  }
-];
+};
 
-export default function Work() {
+export default function WebPage() {
   return (
-    <Layout title="Events & Activities">
-      <div className="container mx-auto min-h-screen px-4 py-16">
-        <SectionHero
-          title="Events & Activities"
-          subtitle="Workshops, hackathons, tech talks, and more — explore what Nexus has been up to."
-        />
-
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {workItems.map((item, index) => (
-            <ProjectCard
-              key={item.id}
-              {...item}
-              index={index}
-              animated
-            />
-          ))}
-        </div>
-      </div>
-    </Layout>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            getBreadcrumbSchema([
+              { name: 'Home', url: siteUrl },
+              { name: 'Events', url: `${siteUrl}/web` },
+            ])
+          ),
+        }}
+      />
+      <WebClient />
+    </>
   );
 }

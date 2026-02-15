@@ -1,92 +1,63 @@
-'use client';
+import { Metadata } from 'next';
+import ContactClient from './ContactClient';
+import { getContactPageSchema, getBreadcrumbSchema } from '@/lib/jsonLd';
 
-import TextDisperse from '@/app/contact/textDisperse/textDisperse';
-import { clsx } from 'clsx';
-import { useRef, useState } from 'react';
-import { gsap } from 'gsap';
-import Link from 'next/link';
-import { ContactForm } from '@/app/contact/contactForm';
-import { useToast } from '@/components/ui/use-toast';
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.nexusclub.in';
 
-export default function Contact() {
-  const background = useRef(null);
-  const emailRef = useRef(null);
-  const [emailCopied, setEmailCopied] = useState(false);
-  const { toast } = useToast();
+export const metadata: Metadata = {
+  title: 'Contact Us',
+  description:
+    'Get in touch with Nexus — the web development club at ADCET. Reach us via email, Instagram, or GitHub. We\'d love to hear from you!',
+  keywords: [
+    'contact Nexus',
+    'contact Nexus ADCET',
+    'ADCET Nexus contact',
+    'ADCET web dev club contact',
+    'ADCET web development club',
+    'Nexus email',
+    'Nexus ADCE email',
+    'join Nexus',
+    'join Nexus club',
+    'join ADCET coding club',
+    'Nexus Instagram',
+    'Nexus GitHub',
+    'nexus.adce@gmail.com',
+    'web dev club Sangli contact',
+  ],
+  alternates: {
+    canonical: `${siteUrl}/contact`,
+  },
+  openGraph: {
+    title: 'Contact Nexus — Web Dev Club',
+    description:
+      'Reach out to Nexus club at ADCET via email, Instagram, or GitHub.',
+    url: `${siteUrl}/contact`,
+    type: 'website',
+  },
+};
 
-  const setBackground = (isActive: any) => {
-    gsap.to(background.current, { opacity: isActive ? 0.7 : 0 });
-  };
-
-  const copyEmail = () => {
-    navigator.clipboard.writeText('nexus.adce@gmail.com');
-    setEmailCopied(true);
-    setTimeout(() => setEmailCopied(false), 2000);
-  };
-
-  const scrollToEmail = () => {
-    const emailSection = document.getElementById('email');
-    copyEmail();
-    if (emailSection) {
-      emailSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
+export default function ContactPage() {
   return (
-    <div className="-mt-20 bg-foreground text-white ">
-      <div className="flex min-h-screen w-full items-center justify-center pt-44 align-middle text-[8.6vw] xs:text-[5.6vw]">
-        <div className="p-12 xs:w-1/2 xs:p-0">
-          <div className="flex justify-between uppercase">
-            <p className="m-0">NEXUS</p>
-            <p className="m-0">CLUB</p>
-          </div>
-          <div className="flex justify-between uppercase">
-            <p className="m-0">web</p>
-            <p className="m-0">&</p>
-          </div>
-          <div className="flex justify-between uppercase">
-            <p className="m-0">development</p>
-            <p className="m-0">club</p>
-          </div>
-          <div className="flex justify-between uppercase">
-            <p className="m-0">ADCE </p>
-            <Link href={'https://www.instagram.com/nexus_adce'}>
-              <TextDisperse setBackground={setBackground}>
-                <p>→Instagram</p>
-              </TextDisperse>
-            </Link>
-          </div>
-          <div className="flex justify-between uppercase">
-            <TextDisperse
-              setBackground={setBackground}
-              onClick={() => {
-                toast({
-                  description:
-                    'Email copied to clipboard! You can also write your message in the form below.'
-                });
-                scrollToEmail();
-              }}
-            >
-              <p className="m-0">→Email</p>
-            </TextDisperse>
-
-            <Link href={'https://github.com/NEXUS-ADCET'}>
-              <TextDisperse setBackground={setBackground}>
-                <p>→Github</p>
-              </TextDisperse>
-            </Link>
-          </div>
-          <div
-            ref={background}
-            className={clsx(
-              'pointer-events-none absolute inset-0 h-full w-full bg-foreground text-[5.6vw] opacity-0'
-            )}
-          ></div>
-        </div>
-      </div>
-      <div className="px-12 sm:px-56" id="email" ref={emailRef}>
-        <ContactForm />
-      </div>
-    </div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(getContactPageSchema()),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            getBreadcrumbSchema([
+              { name: 'Home', url: siteUrl },
+              { name: 'Contact', url: `${siteUrl}/contact` },
+            ])
+          ),
+        }}
+      />
+      <ContactClient />
+    </>
   );
 }
