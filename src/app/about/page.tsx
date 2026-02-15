@@ -11,6 +11,8 @@ import RoundedButton from '@/components/animations/roundedButton';
 import OpenSourceShowcase from '@/components/about/OpenSourceShowcase';
 import CompactGitHubWidget from '@/components/about/Widgets/CompactGitHubWidget';
 import IMessageWidget from '@/components/about/Widgets/IMessageWidget';
+import { Highlighter } from '@/components/ui/highlighter';
+import { ComicText } from '@/components/ui/comic-text';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -91,7 +93,7 @@ export default function About() {
 
   return (
     <div className="relative overflow-hidden">
-      <Layout title="About Us" center={true}>
+      <Layout title="About us" center={true}>
         <div>
           {/* ── HERO SECTION ── */}
           <section className="relative py-16 md:py-28 overflow-hidden">
@@ -113,18 +115,22 @@ export default function About() {
               <AnimatedSection animation="fade-up" delay={0.05}>
                 <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 text-foreground">
                   We are{' '}
-                  <span className="text-gradient">Nexus</span>
+                  <ComicText className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight">Nexus</ComicText>
                 </h1>
               </AnimatedSection>
 
               <AnimatedSection animation="fade-up" delay={0.1}>
-                <TextReveal
-                  text="A vibrant community of developers, designers, and tech enthusiasts who believe in learning by building. From ideation to deployment, we transform concepts into real-world applications while fostering innovation, collaboration, and open-source contribution."
-                  className="text-lg md:text-xl lg:text-2xl font-medium leading-relaxed text-foreground/70 text-center max-w-3xl mx-auto"
-                  as="p"
-                  highlightWords={['building', 'innovation', 'collaboration']}
-                  scrub={false}
-                />
+                <p className="text-lg md:text-xl lg:text-2xl font-medium leading-relaxed text-foreground/70 text-center max-w-3xl mx-auto">
+                  A{" "}
+                  <Highlighter action="underline" color="#FF9800">
+                    vibrant community
+                  </Highlighter>{" "}
+                  of developers, designers, and tech enthusiasts who believe in{" "}
+                  <Highlighter action="highlight" color="#87CEFA">
+                    learning by building
+                  </Highlighter>{" "}
+                  . From ideation to deployment, we transform concepts into real-world applications while fostering innovation, collaboration, and open-source contribution.
+                </p>
               </AnimatedSection>
 
               {/* Scroll indicator */}
